@@ -68,6 +68,4 @@ extracted_outliers = cloud_filtered.extract(inliers, negative=True)
 filename = 'extracted_outliers.pcd'
 pcl.save(extracted_outliers, filename)
 
-# Save pcd for tabletop objects
-
 
