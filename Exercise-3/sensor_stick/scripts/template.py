@@ -1,9 +1,26 @@
 #!/usr/bin/env python
 
 # Import modules
-from pcl_helper import *
+import numpy as np
+import sklearn
+from sklearn.preprocessing import LabelEncoder
 
-# TODO: Define functions as required
+import pickle
+
+from sensor_stick.srv import GetNormals
+from sensor_stick.features import compute_color_histograms
+from sensor_stick.features import compute_normal_histograms
+from visualization_msgs.msg import Marker
+
+from sensor_stick.marker_tools import *
+from sensor_stick.msg import DetectedObjectsArray
+from sensor_stick.msg import DetectedObject
+from sensor_stick.pcl_helper import *
+
+# Define function as require
+def get_normals(cloud):
+    get_normals_prox = rospy.ServiceProxy('/feature_extractor/get_normals', GetNormals)
+    return get_normals_prox(cloud).cluster
 
 # Callback function for your Point Cloud Subscriber
 def pcl_callback(pcl_msg):
