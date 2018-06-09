@@ -28,10 +28,7 @@ if __name__ == '__main__':
        'soap',
        'soap2',
        'book',
-       'glue',
-       'sticky_notes',
-       'snacks',
-       'eraser']
+       'glue']
 
     # Disable gravity and delete the ground plane
     initial_setup()
